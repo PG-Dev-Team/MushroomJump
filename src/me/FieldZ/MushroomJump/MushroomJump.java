@@ -8,24 +8,32 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 public class MushroomJump extends JavaPlugin{
 	
-	Logger log = Logger.getLogger("Minecraft");
+	Logger log;
 	
 	private final MushroomJumpPlayerListener playerListener = new MushroomJumpPlayerListener(this);
 	private final MushroomJumpEntityListener entityListener = new MushroomJumpEntityListener(this);
 	
 	/**
+	 * Method for when the plugin loads
+	 */
+	@Override
+	public void onLoad() {
+		log = getLogger();
+	}
+	
+	/**
 	 * Method for when the plugin disables
 	 */
 	@Override
-	public void onDisable(){
+	public void onDisable() {
 		log.info("MushroomJump is disabled!");
 	}
 	
 	/**
-	 * Method for when MushroomJump is enabled; PlayerListeners are ready upped!
+	 * Method for when MushroomJump is enabled; Listeners Enabled as well
 	 */
 	@Override
-	public void onEnable(){
+	public void onEnable() {
 		// Registering events
 		PluginManager pm = this.getServer().getPluginManager();
 		pm.registerEvents(playerListener, this);

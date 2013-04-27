@@ -14,7 +14,7 @@ public class MushroomJumpPlayerListener implements Listener{
 	 * Constructor for PlayerListener
 	 * @param instance Grabs an instance of MushroomJump
 	 */
-	public MushroomJumpPlayerListener(MushroomJump instance){
+	public MushroomJumpPlayerListener(MushroomJump instance) {
 		plugin = instance;
 	}
 
@@ -31,11 +31,11 @@ public class MushroomJumpPlayerListener implements Listener{
 				Block block = player.getLocation().getBlock().getRelative(BlockFace.DOWN);
 				if (block.getType() == Material.HUGE_MUSHROOM_1) {
 					Vector dir = player.getLocation().getDirection().multiply(1.75);
-					Vector vec = new Vector(dir.getX(), 1.5D, dir.getZ());
+					Vector vec = new Vector(dir.getX(), 2.5D, dir.getZ());
 					player.setVelocity(vec);
 				} else if(block.getType() == Material.HUGE_MUSHROOM_2) {
 					Vector dir = player.getLocation().getDirection().multiply(1.75);
-					Vector vec = new Vector(dir.getX(), 2.0D, dir.getZ());
+					Vector vec = new Vector(dir.getX(), 3.0D, dir.getZ());
 					player.setVelocity(vec);
 				}
 			}
