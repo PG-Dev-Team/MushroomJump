@@ -28,7 +28,7 @@ public class MushroomJumpEntityListener implements Listener{
 	 public void onEntityDamage(EntityDamageEvent ev){
 		 if(ev.getEntity() instanceof Player) {
 			 Player player = (Player) ev.getEntity();
-			 if(ev.getCause().equals((DamageCause.FALL)) && plugin.hasPermissions(player, "MushroomJump.affected")){
+			 if(ev.getCause().equals((DamageCause.FALL)) && player.hasPermission("MushroomJump.affected")){
 				 Block b = player.getLocation().getBlock().getRelative(BlockFace.DOWN);
 				 if(b.getType() == Material.HUGE_MUSHROOM_1 || b.getType() == Material.HUGE_MUSHROOM_2){
 					 ev.setCancelled(true);

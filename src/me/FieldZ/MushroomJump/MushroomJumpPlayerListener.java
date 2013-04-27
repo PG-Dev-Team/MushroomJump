@@ -27,7 +27,7 @@ public class MushroomJumpPlayerListener implements Listener{
 	public void onPlayerMove(PlayerMoveEvent ev){
 		if (!ev.getFrom().getBlock().getLocation().equals(ev.getTo().getBlock().getLocation())) {
 			Player player = ev.getPlayer();
-			if (plugin.hasPermissions(player, "MushroomJump.affected")) {
+			if (player.hasPermission("MushroomJump.affected")) {
 				Block block = player.getLocation().getBlock().getRelative(BlockFace.DOWN);
 				if (block.getType() == Material.HUGE_MUSHROOM_1) {
 					Vector dir = player.getLocation().getDirection().multiply(1.75);

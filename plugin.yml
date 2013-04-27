@@ -1,10 +1,10 @@
 name: MushroomJump
 main: me.FieldZ.MushroomJump.MushroomJump
 authors: [FieldZ, Devil Boy]
-version: 1.4
+version: 1.5
 description: Players can jump from mushroom to mushroom! Very nice!
 
 permissions:
-    MushroomJump.affected:
+    mushroomjump.affected:
         default: true
         description: Will be affected by mushroom-jumping.

@@ -2,14 +2,9 @@ package me.FieldZ.MushroomJump;
 
 import java.util.logging.Logger;
 
-import org.bukkit.entity.Player;
-import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.PluginDescriptionFile;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
-
-import com.nijiko.permissions.PermissionHandler;
-import com.nijikokun.bukkit.Permissions.Permissions;
 
 public class MushroomJump extends JavaPlugin{
 	
@@ -17,9 +12,6 @@ public class MushroomJump extends JavaPlugin{
 	
 	private final MushroomJumpPlayerListener playerListener = new MushroomJumpPlayerListener(this);
 	private final MushroomJumpEntityListener entityListener = new MushroomJumpEntityListener(this);
-	
-	// Permissions Integration
-    private static PermissionHandler Permissions;
 	
 	/**
 	 * Method for when the plugin disables
@@ -39,31 +31,8 @@ public class MushroomJump extends JavaPlugin{
 		pm.registerEvents(playerListener, this);
 		pm.registerEvents(entityListener, this);
 		
-		// Connect with the permissions system
-		setupPermissions();
-		
 		PluginDescriptionFile pdfFile = this.getDescription();
 		log.info(pdfFile.getName() + " version " + pdfFile.getVersion() + " is enabled!");
 	}
-	
-	// Permissions Methods
-    private void setupPermissions() {
-        Plugin permissions = this.getServer().getPluginManager().getPlugin("Permissions");
-
-        if (Permissions == null) {
-            if (permissions != null) {
-                Permissions = ((Permissions)permissions).getHandler();
-            } else {
-            }
-        }
-    }
-    
-    protected boolean hasPermissions(Player player, String node) {
-        if (Permissions != null) {
-        	return Permissions.has(player, node);
-        } else {
-            return player.hasPermission(node);
-        }
-    }
 
 }
